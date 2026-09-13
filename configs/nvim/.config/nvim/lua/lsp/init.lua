@@ -7,6 +7,10 @@ vim.lsp.config("*", {
 
 -- LSP clients
 local servers = {
+    clangd = {
+        cmd = { "clangd" },
+        filetypes = { "c", "cpp" },
+    },
     tsc = {
         cmd = { "tsc", "--lsp", "--stdio" },
         filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },

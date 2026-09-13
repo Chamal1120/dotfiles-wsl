@@ -50,24 +50,25 @@ export PATH="$HOME/.local/bin/jdtls/bin:$PATH"
 # export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 # export PATH=$JAVA_HOME/bin:$PATH
 
-# Android SDK - using Windows-mounted SDK (WSL)
-# Native Linux SDK kept below, commented out
-# export ANDROID_HOME="$HOME/Android/Sdk"
-# export PATH="$ANDROID_HOME/emulator:$PATH"
-export ANDROID_HOME="/mnt/c/Users/chamal/AppData/Local/Android/Sdk"
+# Android SDK
+export ANDROID_HOME="$HOME/Android/Sdk"
 export ANDROID_SDK_ROOT="$ANDROID_HOME"
-export PATH="$PATH:$ANDROID_HOME/emulator"
+export PATH="$ANDROID_HOME/platform-tools:$PATH"
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 
 # Flutter / Dart (FVM)
 #export PATH="$HOME/flutter-sdk/flutter/bin:$PATH"
-export PATH="$HOME/fvm/bin:$PATH"
-export PATH="$HOME/fvm/default/bin:$PATH"
+#export PATH="$HOME/fvm/bin:$PATH"
+#export PATH="$HOME/fvm/default/bin:$PATH"
+export PATH="$HOME/develop/bin:$PATH"
 export PUB_CACHE="$HOME/.pub-cache"
 export PATH="$PATH:$PUB_CACHE/bin"
 
 # Go
-export PATH="$PATH:/usr/local/go/bin"
+export GOROOT="$HOME/.local/go"
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOROOT/bin"
+export PATH="$PATH:$GOPATH/bin"
 
 # Maven
 export M2_HOME="/opt/maven"
@@ -178,3 +179,11 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# pnpm
+export PNPM_HOME="/home/chamal/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end

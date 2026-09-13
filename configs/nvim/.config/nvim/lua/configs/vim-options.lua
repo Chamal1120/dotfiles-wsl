@@ -40,7 +40,7 @@ vim.opt.splitbelow = true
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = "split"
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
@@ -75,6 +75,7 @@ vim.api.nvim_create_user_command("Gtr", function()
 	vim.api.nvim_echo({ { "remote opened in the default browser!", "Normal" } }, false, {})
 end, {})
 
+
 -- Keymaps for custom nvim commands
 vim.keymap.set("n", "<C-f>", ":Tms<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-g>", ":Gtr<CR>", { noremap = true, silent = true })
@@ -94,14 +95,13 @@ vim.keymap.set('n', '<C-M-j>', ':resize +5<CR>',
 vim.keymap.set('n', '<C-M-k>', ':resize -5<CR>',
   { noremap = true, silent = true, desc = 'Decrease horizontal split height' })
 
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
 -- Custom filetype matchings
 vim.filetype.add({
   extension = {
     bal = 'ballerina',
     rs = 'rust'
-  },
-  pattern = {
-    [".*/hypr/.*%.conf"] = "hyprlang", -- Detect as hyprlang files
   },
 })
 

@@ -2,6 +2,10 @@ return {
     {
         "mfussenegger/nvim-dap",
         lazy = true,
+        keys = {
+            "<leader>dt", "<leader>dc", "<leader>ds", "<leader>di", "<leader>do",
+            "<leader>dr", "<leader>dl", "<leader>du", "<leader>de", "<leader>aw",
+        },
         dependencies = {
             "rcarriga/nvim-dap-ui",
             "nvim-neotest/nvim-nio",
@@ -12,7 +16,30 @@ return {
             -- DAP setup
             local dap = require("dap")
             local dapui = require("dapui")
-            dapui.setup()
+            dapui.setup({
+                layouts = {
+                    {
+                        position = "left",
+                        size = 40,
+                        elements = {
+                            { id = "scopes", size = 0.5 },
+                            { id = "watches", size = 0.25 },
+                            { id = "stacks", size = 0.25 },
+                        },
+                    },
+                    {
+                        position = "bottom",
+                        size = 10,
+                        elements = {
+                            -- Java launches with console = "integratedTerminal",
+                            -- so program output lands here, not in the repl.
+                            { id = "console", size = 1.0 },
+                        },
+                    },
+                },
+                -- Default is "repl", which is no longer in the layout.
+                controls = { enabled = true, element = "console" },
+            })
 
             require("dap-go").setup()
 
