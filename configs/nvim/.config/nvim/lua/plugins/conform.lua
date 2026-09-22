@@ -16,7 +16,7 @@ return {
             typescriptreact = { "prettier", stop_after_first = true },
             svelte = { "prettier" },
             css = { "stylelint", "prettier" },
-            -- java = { "google_java_format", lsp_format = "fallback" },
+            java = { "google_java_format", lsp_format = "fallback" },
             xml = { "xmlformat" },
         },
     },

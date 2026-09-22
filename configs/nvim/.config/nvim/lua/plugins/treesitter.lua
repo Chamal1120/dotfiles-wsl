@@ -1,12 +1,9 @@
 return {
-  'nvim-treesitter/nvim-treesitter',
-  lazy = false,
-  build = ':TSUpdate',
-  config = function()
-    require('nvim-treesitter.config').setup({
-      ensure_installed = { "java" },
-      auto_install = false,
-      highlight = { enable = true },
-    })
-  end,
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    opts = {},
+    config = function(_, opts)
+        require('nvim-treesitter').setup({opts})
+        require('nvim-treesitter').install({ 'java', 'html', 'json', 'c' })
+    end,
 }

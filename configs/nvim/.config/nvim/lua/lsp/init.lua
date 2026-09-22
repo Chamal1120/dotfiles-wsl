@@ -14,7 +14,12 @@ local servers = {
     tsc = {
         cmd = { "tsc", "--lsp", "--stdio" },
         filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
-        rootmarkers = {"package.json", "tsconfig.json", ".git"}
+        rootmarkers = { "package.json", "tsconfig.json", ".git" }
+    },
+    tailwindcss = {
+        cmd = { "tailwindcss-language-server" },
+        filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+        rootmarkers = { "package.json", "tsconfig.json", ".git" }
     },
     --svelte = {
     --    cmd = { "svelteserver", "--stdio" },
@@ -131,6 +136,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
             local ok, cmp = pcall(require, "blink.cmp")
             if ok then cmp.show() end
         end, opts)
-
     end,
 })
