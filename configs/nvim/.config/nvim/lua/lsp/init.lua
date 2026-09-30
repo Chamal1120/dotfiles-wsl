@@ -25,10 +25,10 @@ local servers = {
     --    cmd = { "svelteserver", "--stdio" },
     --    filetypes = { "svelte" },
     --},
-    -- gopls = {
-    --     cmd = { "gopls" },
-    --     filetypes = { "go" },
-    -- },
+    gopls = {
+        cmd = { "gopls" },
+        filetypes = { "go" },
+    },
     lua_ls = {
         cmd = { "lua-language-server" },
         filetypes = { "lua" },
