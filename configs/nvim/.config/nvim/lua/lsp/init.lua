@@ -27,7 +27,17 @@ local servers = {
     --},
     gopls = {
         cmd = { "gopls" },
-        filetypes = { "go" },
+        filetypes = { "go", "gomod", "gowork", "gotmpl" },
+        root_markers = { "go.work", "go.mod", ".git" },
+        settings = {
+            gopls = {
+                semanticTokens = true,
+                analyses = {
+                    unusedparams = true,
+                },
+                staticcheck = true,
+            },
+        },
     },
     lua_ls = {
         cmd = { "lua-language-server" },
